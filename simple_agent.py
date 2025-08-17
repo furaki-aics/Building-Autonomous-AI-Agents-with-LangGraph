@@ -21,9 +21,9 @@ response = client.chat.completions.create(
     ],
 )
 # print(response.choices[0].message.content)
+# print(response)
 
-
-# Create our own simple agent
+# # Create our own simple agent
 class Agent:
     def __init__(self, system=""):
         self.system = system
@@ -100,7 +100,7 @@ Answer: The combined mass of Earth and Mars is 6.61371 × 10^24 kg
 """.strip()
 
 
-# Implement the functions actions
+# # Implement the functions actions
 def calculate(what):
     return eval(what)
 
@@ -122,77 +122,77 @@ def planet_mass(name):
 known_actions = {"calculate": calculate, "planet_mass": planet_mass}
 
 
-# Create the agent
+# # Create the agent
 agent = Agent(system=prompt)
 
 # response = agent("what is the mass of Earth?")
 # print(response)
 
 
-# response = planet_mass("Earth")
-# print(response)
+# # response = planet_mass("Earth")
+# # print(response)
 
 
-# next_response = f"Oberservation: {response}"
+# # next_response = f"Oberservation: {response}"
 
-# print(next_response)
+# # print(next_response)
 
-# response = agent(next_response)
-# print(response)
+# # response = agent(next_response)
+# # print(response)
 
-# # all messages
-# print(f" Messages--> {agent.messages}")
+# # # all messages
+# # print(f" Messages--> {agent.messages}")
 
-# ----- Complext query ------
-# Complex query
-# question = "What is the combined mass of Saturn and Jupiter and Earth?"
-# response = agent(question)
+# # ----- Complext query ------
+# # Complex query
+# # question = "What is the combined mass of Saturn and Jupiter and Earth?"
+# # response = agent(question)
 
-# print(response)
+# # print(response)
 
-# next_prompt = "Observation: {}".format(planet_mass("Saturn"))
-# print(next_prompt)
+# # next_prompt = "Observation: {}".format(planet_mass("Saturn"))
+# # print(next_prompt)
 
-# # call the agent again with the next prompt
-# res = agent(next_prompt)
-# print(res)
-
-
-# next_prompt = "Observation: {}".format(planet_mass("Jupiter"))
-# print(next_prompt)
-
-# # call the agent again with the next prompt
-# res = agent(next_prompt)
-# print(res)
+# # # call the agent again with the next prompt
+# # res = agent(next_prompt)
+# # print(res)
 
 
-# next_prompt = "Observation: {}".format(planet_mass("Earth"))
-# print(next_prompt)
+# # next_prompt = "Observation: {}".format(planet_mass("Jupiter"))
+# # print(next_prompt)
 
-# # call the agent again with the next prompt
-# res = agent(next_prompt)
-# print(res)
-
-# # calculate the combined mass
-# next_prompt = "Obseveration: {}".format(eval("568.34 + 1898.19 + 5.972"))
-# print(next_prompt)
-
-# # call the agent again with the next prompt
-# res = agent(next_prompt)
-# print(
-#     f"Final answer is {res}"
-# )  # The combined mass of Earth and Mars is 6.61371 × 10^24 kg
-# ----- Complext query END ------
-
-# ----- Final solution - Automate our AI Agent ------
-# Create a loop to automate the agent until the agent returns an answer
-
-import re
-
-action_re = re.compile(r"^Action: (\w+): (.*)$")
+# # # call the agent again with the next prompt
+# # res = agent(next_prompt)
+# # print(res)
 
 
-# Create a query function
+# # next_prompt = "Observation: {}".format(planet_mass("Earth"))
+# # print(next_prompt)
+
+# # # call the agent again with the next prompt
+# # res = agent(next_prompt)
+# # print(res)
+
+# # # calculate the combined mass
+# # next_prompt = "Obseveration: {}".format(eval("568.34 + 1898.19 + 5.972"))
+# # print(next_prompt)
+
+# # # call the agent again with the next prompt
+# # res = agent(next_prompt)
+# # print(
+# #     f"Final answer is {res}"
+# # )  # The combined mass of Earth and Mars is 6.61371 × 10^24 kg
+# # ----- Complext query END ------
+
+# # ----- Final solution - Automate our AI Agent ------
+# # Create a loop to automate the agent until the agent returns an answer
+
+# import re
+
+# action_re = re.compile(r"^Action: (\w+): (.*)$")
+
+
+# # Create a query function
 # def query(question, max_turns=10):
 #     i = 0
 #     bot = Agent(prompt)
@@ -219,8 +219,9 @@ action_re = re.compile(r"^Action: (\w+): (.*)$")
 # question = "What is the combined mass of Earth and Jupiter and Saturn and Venus?"
 # query(question)
 
-
-# Function to handle the interactive query
+import re
+action_re = re.compile(r"^Action: (\w+): (.*)$")
+# # Function to handle the interactive query
 def query_interactive():
     bot = Agent(prompt)
     max_turns = int(input("Enter the maximum number of turns: "))
