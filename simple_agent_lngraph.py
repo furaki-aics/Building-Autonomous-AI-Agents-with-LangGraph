@@ -34,6 +34,7 @@ class State(TypedDict):
 def bot(state: State):
     # print(state.items())
     print(state["messages"])
+    print("=======")
     return {"messages": [model.invoke(state["messages"])]}
 
 
@@ -56,6 +57,8 @@ graph_builder.set_finish_point("bot")
 graph = graph_builder.compile()
 
 # res = graph.invoke({"messages": ["Hello, how are you?"]})
+# print(res)
+# print("=======")
 # print(res["messages"])
 
 while True:
