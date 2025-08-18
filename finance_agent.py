@@ -202,10 +202,10 @@ builder.add_edge("compare_performance", "write_report")
 graph = builder.compile(checkpointer=memory)
 
 # ==== For Console Testing ====
-# def read_csv_file(file_path):
-#     with open(file_path, "r") as file:
-#         print("Reading CSV file...")
-#         return file.read()
+def read_csv_file(file_path):
+    with open(file_path, "r") as file:
+        print("Reading CSV file...")
+        return file.read()
 
 
 # if __name__ == "__main__":
@@ -220,7 +220,7 @@ graph = builder.compile(checkpointer=memory)
 #     else:
 #         print("Starting the conversation...")
 #         csv_data = read_csv_file(csv_file_path)
-
+#         print("CSV file read successfully.", csv_data[:10], "...")  # Print first 100 characters for brevity
 #         initial_state = {
 #             "task": task,
 #             "competitors": competitors,
